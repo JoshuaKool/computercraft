@@ -24,7 +24,7 @@ end
 local box = peripheral.find("minecraft:chest")
 if box == nil then
     print("- No chest found: Attaching chest to the left side of the computer.")
-    periphemu.create('left', 'minecraft:chest', false)
+    peripheral.create('left', 'minecraft:chest', false)
 
     print("- Adding some items to the chest...")
     local chest = peripheral.find("minecraft:chest")
