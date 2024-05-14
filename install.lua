@@ -1,7 +1,8 @@
 local function download(url, path)
     local response = http.get(url)
-    if response and response.getResponseCode() == 200 then
+    if response then
         local content = response.readAll()
+        response.close()
         local file = fs.open(path, "w")
         file.write(content)
         file.close()
@@ -12,8 +13,7 @@ local function download(url, path)
 end
 
 local function install()
-    download("https://github.com/JoshuaKool/computercraft/blob/main/chest_monitor.lua", "chest_monitor.lua")
-    
+    download("https://raw.githubusercontent.com/JoshuaKool/computercraft/main/chest_monitor.lua", "chest_monitor.lua")
 end
 
 install()
