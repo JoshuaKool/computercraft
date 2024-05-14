@@ -13,6 +13,12 @@ if chest == nil then
     periphemu.create('left', 'minecraft:chest', false)
 
     print("- Adding some items to the chest...")
+    local box = peripheral.find("minecraft:chest")
+
+    if box == nil then
+        monitor.write("chest is empty")
+        return
+    end
 end
 
 print("\nSetup complete. You should now have a chest on the left side and a monitor on the right side of your computer.\n")
@@ -31,7 +37,7 @@ function print_inventory_on_monitor(chest, monitor)
         item.name = item.name:gsub("minecraft:", "")
         local text = item.name
         local text2 = "x" .. item.count
-        local x = math.floor((width - #text) / 2) -- oh boy do i love communism
+        local x = math.floor((width - #text) / 2)
         monitor.setCursorPos(x, y)
         monitor.write(text)
         y = y + 1
