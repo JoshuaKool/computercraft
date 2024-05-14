@@ -1,4 +1,4 @@
-local http = "https://github.com/JoshuaKool/computercraft/blob/main/"
+local http = "https://github.com/JoshuaKool/computercraft/blob/main/chest_monitor.lua"
 
 local function download(url, path)
     local request = http.get(url)
