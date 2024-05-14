@@ -13,5 +13,5 @@ if response then
 
     shell.run("reboot")
 else
-    print("welp")
+    print("Failed to download the file. Please try again later.")
 end
