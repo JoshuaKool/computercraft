@@ -1,6 +1,6 @@
 local function download(url, path)
     local response = http.get(url)
-    if response and response.getResponseCode() == 200 then
+    if response then
         local content = response.readAll()
         response.close()
         local file = fs.open(path, "w")
@@ -16,3 +16,9 @@ local function download(url, path)
         print("Failed to download " , path)
     end
 end
+
+local function install()
+    download("https://raw.githubusercontent.com/JoshuaKool/computercraft/main/chest_monitor.lua", "chest_monitor.lua")
+end
+
+install()
