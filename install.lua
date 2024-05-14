@@ -13,7 +13,7 @@ end
 
 local function install()
     download("https://github.com/JoshuaKool/computercraft/blob/main/chest_monitor.lua", "chest_monitor.lua")
-    fs.delete("install.lua")
+    
 end
 
 install()
