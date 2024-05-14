@@ -1,4 +1,4 @@
-response = http.get("https://github.com/JoshuaKool/computercraft/blob/main/install.lua")
+response = http.get("https://github.com/JoshuaKool/computercraft/blob/main/chest_monitor.lua")
 
 if response then
     local content = response.readAll()
