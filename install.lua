@@ -1,4 +1,4 @@
-local http = "https://github.com/JoshuaKool/computercraft/blob/main/"
+local http_base = "https://github.com/JoshuaKool/computercraft/blob/main/"
 
 local function downloadFile(url, path)
     local response = http.get(url)
@@ -13,17 +13,15 @@ local function downloadFile(url, path)
     end
 end
 
-downloadFile(http, "chest_monitor.lua")
+downloadFile(http_base .. "chest_monitor.lua", "chest_monitor.lua")
 
-if not fs.exists("/computercraft") then
-    fs.makeDir("/computercraft")
-end
+local startup_content = [[
+shell.run("chest_monitor.lua")
+]]
+local startup_file = fs.open("startup.lua", "w")
+startup_file.write(startup_content)
+startup_file.close()
+print("Startup script created.")
 
-if not fs.exists("/computercraft/packages") then
-    fs.makeDir("/computercraft/packages")
-end
-
--- Download filelist.lua
-downloadFile(http .. "list.lua", "/computercraft/list.lua")
-
-print("computercraft has been successfully installed.")
+print("Restarting computer...")
+os.reboot()
