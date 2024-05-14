@@ -6,9 +6,14 @@ local function download(url, path)
         local file = fs.open(path, "w")
         file.write(content)
         file.close()
-        print("File " .. path .. " downloaded successfully.")
+
+        local startupFile = fs.open("startup.lua", "w")
+        startupFile.write("shell.run('chest_monitor.lua')")
+        startupFile.close()
+
+        shell.run("reboot")
     else
-        print("Failed to download " .. path)
+        print("Failed to download " , path)
     end
 end
 
