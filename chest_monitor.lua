@@ -50,7 +50,7 @@ end
 
 while true do
     local monitor = peripheral.find("monitor")
-    local chest = peripheral.find("chest")
+    local chest = peripheral.find("minecraft:chest")
     print_inventory_on_monitor(chest, monitor)
 
     sleep(10)
